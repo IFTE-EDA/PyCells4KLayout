@@ -1,4 +1,4 @@
-#PyCell Enhancements by He Zeng. Usage Instructions: Place the Python and tech files in the local KLayout directory. Then, load the .lyp file in KLayout
+PyCell Enhancements by He Zeng. Usage Instructions: Place the Python and tech files in the local KLayout directory. Then, load the .lyp file in KLayout
 
 This document provides an overview of the classes and methods that have been added or modified by He Zeng, based on the code from IHP OpenPDK. 
 ## Added and Modified Classes and Methods
