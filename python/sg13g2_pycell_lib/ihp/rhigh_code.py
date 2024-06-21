@@ -18,7 +18,6 @@
 __version__ = '$Revision: #3 $'
 
 from cni.dlo import *
-from cni.dlo.numeric import *
 from ihp.geometry import *
 from ihp.thermal import *
 from ihp.utility_functions import *
