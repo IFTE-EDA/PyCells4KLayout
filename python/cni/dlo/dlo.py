@@ -21,8 +21,7 @@
 #
 #   Author        Modification
 # ------------  -------------------------------------------------
-# He.Zeng      Added exists method in the Dlo class.
-# He.Zeng      Modified the __call__ method, coerce_parameters method, and PyCellContext class.
+# He.Zeng      Modified the __call__ method, and PyCellContext class. add coerce_parameters method, 
 # He.Zeng      Adapted some methods and descriptors from KLayout's main source: class _PCellDeclarationHelperParameterDescriptor, method init_values, method finish
 # He.Zeng      Added exists and getProps methods to the Dlo class.
 # He.Zeng      Added getGridResolution method to the Tech class.
