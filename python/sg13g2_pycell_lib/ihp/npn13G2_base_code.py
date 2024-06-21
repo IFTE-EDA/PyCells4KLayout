@@ -148,5 +148,4 @@ class npn13G2_base(DloGen):
         pcLabelText = self.Text
         pcLabelHeight = 0.35
         pcInst = dbCreateLabel(self, Layer('TEXT', 'drawing'), Point(0.015, (-1.86 - we/2 - leoffset - bipwinyoffset - empolyyoffset)), pcLabelText, 'centerCenter', 'R0', Font.EURO_STYLE, pcLabelHeight)
-        print("NPN POUINT,",(-1.86 - we/2 - leoffset - bipwinyoffset - empolyyoffset), we/2,leoffset ,bipwinyoffset, empolyyoffset)
-        #pcInst.setDrafting(True)
+        pcInst.setDrafting(True)
