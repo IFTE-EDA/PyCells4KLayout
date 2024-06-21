@@ -74,7 +74,7 @@ class Text(Shape):
         tempDtext = pya.DText(self.text ,pya.DTrans(self.orient, pya.DVector(0, 0)), self.height, 0)
         tempDtext.x=self.origin.x
         tempDtext.y=self.origin.y
-        dbox=self._calculateTextBbox().transformed(pya.DTrans(self.orient, pya.DVector(self.origin.x, self.origin.y))) 
+        dbox = self._calculateTextBbox().transformed(pya.DTrans(self.orient, pya.DVector(self.origin.x, self.origin.y))) 
         super().__init__(layer= self.layerid, bbox =Box(dbox))
         locationMap = {Location.LOWER_LEFT: self.bbox.lowerLeft(), Location.CENTER_LEFT: self.bbox.centerLeft(), Location.UPPER_LEFT: self.bbox.upperLeft(),
                         Location.LOWER_CENTER: self.bbox.lowerCenter(), Location.CENTER_CENTER: self.bbox.centerCenter(), Location.UPPER_CENTER: self.bbox.upperCenter(),
