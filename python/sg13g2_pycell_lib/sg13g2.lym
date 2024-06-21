@@ -103,9 +103,7 @@ class PyCellLib(pya.Library):
     def __init__(self):
         self.description = "IHP PyCells"
         tech_instance = cni.dlo.dlo.Tech.get('SG13_dev')  
-        if tech_instance:
-            tech_data = tech_instance.getTechParams() 
-            
+               
         import ihp.cmim_code  
         import ihp.nmos_code
         import ihp.pmos_code
