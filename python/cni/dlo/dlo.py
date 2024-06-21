@@ -21,7 +21,7 @@
 #
 #   Author        Modification
 # ------------  -------------------------------------------------
-# He.Zeng      Modified the __call__ method, and PyCellContext class. add coerce_parameters method, 
+# He.Zeng      Modified the __call__ method, and PyCellContext class. added coerce_parameters method, 
 # He.Zeng      Adapted some methods and descriptors from KLayout's main source: class _PCellDeclarationHelperParameterDescriptor, method init_values, method finish
 # He.Zeng      Added exists and getProps methods to the Dlo class.
 # He.Zeng      Added getGridResolution method to the Tech class.
@@ -278,7 +278,7 @@ class PCellWrapper(pya.PCellDeclaration):
         self._param_values = None
         self._param_states = None
 
-    
+    # already been tested.
     def coerce_parameters(self,layout, parameters):
 
         self.init_values(parameters) 
