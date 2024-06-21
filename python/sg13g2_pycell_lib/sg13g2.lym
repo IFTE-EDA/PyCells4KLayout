@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<klayout-macro>
+ <description/>
+ <version/>
+ <category>pymacros</category>
+ <prolog/>
+ <epilog/>
+ <doc/>
+ <autorun>true</autorun>
+ <autorun-early>false</autorun-early>
+ <priority>0</priority>
+ <shortcut/>
+ <show-in-menu>false</show-in-menu>
+ <group-name/>
+ <menu-path/>
+ <interpreter>python</interpreter>
+ <dsl-interpreter-name/>
+ <text>
+
+
+
+########################################################################
+#
+# Copyright 2024 IHP PDK Authors
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+# Put it in a .lym macro file by He Zeng, for automatically run the script and register all PyCells.
+#
+########################################################################
+
+import pya
+import os
+import sys
+
+sys.path.append(r"C:\Users\Zeng He\KLayout\python")
+sys.path.append(r"C:\Users\Zeng He\KLayout\python\sg13g2_pycell_lib")
+
+for k in list(sys.modules.keys()):  #this code is necessary
+    if k.startswith("cni."):
+        del sys.modules[k]
+    elif k.startswith("ihp."):
+        del sys.modules[k]
+    elif k == "sg13_tech":
+        del sys.modules[k]
+
+import importlib
+importlib.invalidate_caches()
+import cni.dlo
+importlib.reload(cni.dlo)
+
+import sg13_tech
+importlib.reload(sg13_tech)
+cni.dlo.dlo.Tech.register(sg13_tech.SG13_Tech())
+
+import ihp.rsil_code
+importlib.invalidate_caches()
+import ihp.rsil_code
+importlib.reload(ihp.rsil_code)
+
+import ihp.rhigh_code
+importlib.invalidate_caches()
+importlib.reload(ihp.rhigh_code)
+
+import ihp.rppd_code
+importlib.invalidate_caches()
+importlib.reload(ihp.rppd_code)
+
+
+import ihp.inductors_code
+importlib.invalidate_caches()
+importlib.reload(ihp.inductors_code)
+
+import ihp.npn13G2L_code
+importlib.invalidate_caches()
+importlib.reload(ihp.npn13G2L_code)
+
+
+
+import ihp.npn13G2_code
+import ihp.npn13G2_base_code
+import ihp.npn13G2V_code
+import ihp.sealring_code
+import ihp.inductor2_code
+import ihp.inductor2_sc_code
+import ihp.inductor2_sp_code
+import ihp.inductor3_code
+import ihp.inductor3_sc_code
+import ihp.inductor3_sp_code
+
+
+class PyCellLib(pya.Library):
+    def __init__(self):
+        self.description = "IHP PyCells"
+        tech_instance = cni.dlo.dlo.Tech.get('SG13_dev')  
+        if tech_instance:
+            tech_data = tech_instance.getTechParams() 
+            
+        import ihp.cmim_code  
+        import ihp.nmos_code
+        import ihp.pmos_code
+        import ihp.sealring_code
+       
+        self.layout().register_pcell("cmim", cni.dlo.dlo.PCellWrapper(ihp.cmim_code.cmim(), tech_instance))   
+        self.layout().register_pcell("pmos", cni.dlo.dlo.PCellWrapper(ihp.pmos_code.pmos(),tech_instance))
+        self.layout().register_pcell("nmos", cni.dlo.dlo.PCellWrapper(ihp.nmos_code.nmos(),tech_instance)) 
+       
+        self.layout().register_pcell("rhigh", cni.dlo.dlo.PCellWrapper(ihp.rhigh_code.rhigh(), tech_instance))
+        self.layout().register_pcell("rsil", cni.dlo.dlo.PCellWrapper(ihp.rsil_code.rsil(), tech_instance))
+        self.layout().register_pcell("rppd", cni.dlo.dlo.PCellWrapper(ihp.rppd_code.rppd(), tech_instance))
+        
+        self.layout().register_pcell("inductor2", cni.dlo.dlo.PCellWrapper(ihp.inductor2_code.inductor2(), tech_instance))
+        self.layout().register_pcell("inductor2_sc", cni.dlo.dlo.PCellWrapper(ihp.inductor2_sc_code.inductor2_sc(), tech_instance))
+        self.layout().register_pcell("inductor2_sp", cni.dlo.dlo.PCellWrapper(ihp.inductor2_sp_code.inductor2_sp(), tech_instance))
+        
+        self.layout().register_pcell("inductor3", cni.dlo.dlo.PCellWrapper(ihp.inductor3_code.inductor3(), tech_instance))
+        self.layout().register_pcell("inductor3_sc", cni.dlo.dlo.PCellWrapper(ihp.inductor3_sc_code.inductor3_sc(), tech_instance))
+        self.layout().register_pcell("inductor3_sp", cni.dlo.dlo.PCellWrapper(ihp.inductor3_sp_code.inductor3_sp(), tech_instance))
+       
+        self.layout().register_pcell("npn13G2L", cni.dlo.dlo.PCellWrapper(ihp.npn13G2L_code.npn13G2L(), tech_instance)) 
+        self.layout().register_pcell("npn13G2V", cni.dlo.dlo.PCellWrapper(ihp.npn13G2V_code.npn13G2V(), tech_instance))
+        self.layout().register_pcell("sealring", cni.dlo.dlo.PCellWrapper(ihp.sealring_code.sealring(), tech_instance))
+        self.layout().register_pcell("npn13G2_base", cni.dlo.dlo.PCellWrapper(ihp.npn13G2_base_code.npn13G2_base(), tech_instance))
+        self.layout().register_pcell("npn13G2", cni.dlo.dlo.PCellWrapper(ihp.npn13G2_code.npn13G2(), tech_instance))
+        
+        self.register("PyCellLib")  
+         
+# instantiate and register the library
+PyCellLib()
+
+</text>
+</klayout-macro>
