@@ -43,8 +43,8 @@ importlib.reload(cni.dlo.orientation)
 
 class Text(Shape):
     def __init__(self, layer, text, origin, height, location=Location.CENTER_CENTER, orient=Orientation.R0, font=Font.STICK, overbar=False, visible=True, drafting=False):
-        # In both the PycCell API and Klayout API, the fonts "stick" and "Gothic" are commonly supported.
-        # In this project, the default font is set to default,
+        # In both the PyCell API and Klayout API, the fonts "stick" and "Gothic" are commonly supported.
+        # In this project, the default font is set to default (0) for further verification of layouts.
         self.layerid = layer
         self.text = text
         #Point.isInstPoint(origin)
