@@ -17,8 +17,8 @@
 ########################################################################
 __version__ = '$Revision: #3 $'
 from cni.dlo import *
-from .utility_functions import *
-from .geometry import *
+from ihp.utility_functions import *
+from ihp.geometry import *
 
 class cmim(DloGen):
 
