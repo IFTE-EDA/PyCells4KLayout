@@ -50,7 +50,7 @@ Based on the code provided by IHP OpenPDK, the following classes have been modif
 This is because the variable `Layer.tech` is automatically set to `None` after the first run, 
 preventing further retrieval of information related to `Layer`. If this happens, KLayout must be restarted.
 3.In subsequent development of new classes, `importlib` with a reload function will need to be used multiple times. 
-The main reason is that KLayout embeds both Python interpreter, which do not automatically re-execute files.
+The main reason is that KLayout embeds Python interpreter, which do not automatically re-execute files.
 
  
 
