@@ -52,9 +52,9 @@ class Grouping:
             comRegion =pya.Region()
         else:
             comRegion = pya.Region(comp.shape.polygon)
-
         xorRegion = totalRegion.xor(comRegion)
         return xorRegion
+
     # already been tested.   
     def fgOr(self, comp, resultLayer):
         totalRegion = pya.Region()
@@ -65,7 +65,6 @@ class Grouping:
             comRegion =pya.Region()
         else:
             comRegion = pya.Region(comp.shape.polygon)
-
         orRegion = totalRegion.or_(comRegion)
         return orRegion  
         
@@ -79,7 +78,6 @@ class Grouping:
             comRegion =pya.Region()
         else:
             comRegion = pya.Region(comp.shape.polygon)
-
         notRegion = totalRegion.not_(comRegion)
         return notRegion  
 
@@ -93,7 +91,6 @@ class Grouping:
             comRegion =pya.Region()
         else:
             comRegion = pya.Region(comp.shape.polygon)
-
         andRegion = totalRegion.and_(comRegion)
         return andRegion     
         
