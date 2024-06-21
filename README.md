@@ -15,7 +15,7 @@ This document provides an overview of the classes and methods that have been add
 9.  **Orientation**: 2 methods
 10. **ParamArray**: 16 methods
 11. **Path**: 9 methods
-12. **Pin**: 7 methods
+12. **Pin**: 6 methods
 13. **Point**: 32 methods
 14. **PointList**: 12 methods
 15. **Polygon**: 20 methods
