@@ -50,7 +50,7 @@ class Shape(object):  #attrubutes: bbox layer, name
         self.net = None
         self.pin = None
        
-        if layer is not None and bbox is not None:  #layer is the object of Layer class, so using layer
+        if layer is not None and bbox is not None:  
             Shape.layer_bbox_map[self._layer.number] = bbox
 
     def set_shape(self, sh):
