@@ -1,7 +1,7 @@
 
 ########################################################################
 #
-#  written by He.Zeng  #add 7 methods. The function for mapping shapes with pins is currently non-functional and requires further investigation.
+#  written by He.Zeng  #add 6 methods. The function for mapping shapes with pins is currently non-functional and requires further investigation.
 #  The Pin object now contains a Rect object and a text label: already tested.
 #  Regarding the mapping of shapes with pins, it may be necessary to verify the OpenAccess (OA) implementation in other EDA tools.
 #
