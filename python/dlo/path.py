@@ -16,14 +16,12 @@
 # limitations under the License.
 #
 ########################################################################
-#from cni.shape import Shape
 from cni.dlo.pathstyle import *
 from cni.dlo.pointlist import *
 from cni.dlo.shape import *
 
 class Path(Shape):
     def __init__(self, layer, width, points, style=PathStyle.TRUNCATE, beginExt=0, endExt=0):
-    
         self.layer = layer
         self.width = width
         self._points = PointList(points).compress() 
@@ -33,9 +31,9 @@ class Path(Shape):
         self.dpath = None
         if len(self._points) < 2:
             raise ValueError("Path must have at least two distinct points")
-        self.updateShape()
+        self.updatePin()
         
-    def updateShape(self):
+    def updatePin(self):
         dPoints = [pya.DPoint(pt.x, pt.y) for pt in self.points]
         tempDpath = pya.DPath(dPoints, self.width, self.beginExt, self.endExt)
         if self.dpath is not None:
@@ -56,7 +54,7 @@ class Path(Shape):
             raise ValueError("Non-zero begin extension can only be set for VARIABLE path style")
         if self.beginExt != beginExtNew:
             self.beginExt = beginExtNew
-            self.updateShape()
+            self.updatePin()
       
     def getEndExt(self):
         if self.style == PathStyle.VARIABLE:
@@ -67,11 +65,11 @@ class Path(Shape):
             raise ValueError("Non-zero begin extension can only be set for VARIABLE path style")
         if self.endExt != endExtNew:
             self.endExtt = endExtNew
-            self.updateShape()
+            self.updatePin()
     def setWidth(self, new_width):
         if self.width != new_width:
             self.width = new_width
-            self.updateShape()
+            self.updatePin()
     @property
     def points(self):
         return self._points
@@ -79,7 +77,7 @@ class Path(Shape):
     @points.setter
     def points(self, newPoints):
         self._points = PointList(newPoints).compress()  
-        self.updateShape()
+        self.updatePin()
 
     def getBoundary(self, usePathOrder=False):
         pass
