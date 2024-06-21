@@ -51,13 +51,7 @@ from cni.dlo.paramarray import *
 from cni.dlo.choiceconstraint import *
 from cni.dlo.stepconstraint import *
 from cni.dlo.propset import *
-
-#from ihp.cmim import *
-
 from abc import ABC, abstractmethod
-
-
-
 
 class Dlo(ABC):
     def __init__(self, libName, cellName, viewName='layout', viewType=None, mode='r', params=None):#, unsupported=HandlingStatus.ERROR
@@ -108,8 +102,6 @@ class Dlo(ABC):
         return True
     
   
-        
-
 
 class TechImpl():
    def __init__(self):
