@@ -115,15 +115,13 @@ class npn13G2(DloGen):
         name = self.masterLib + '/' + self.masterCell +'/' + self.masterView
         if Dlo.exists(name) :
             pcMaster = Instance(name)  
-             
             params = pcMaster.getParams()
             params['le'] = self.le
             params['Nx'] = self.Nx
             params['we'] = self.we
             pcMaster.setParams(params)
             pcMaster.setOrientation(strToOrient(self.masterOrient))
-            pcMaster.setOrigin(Point(0, 0))
-            
+            pcMaster.setOrigin(Point(0, 0))    
         else :
             print('(OA) Design "' + name + '" was not found')
          
@@ -162,9 +160,7 @@ class npn13G2(DloGen):
             
         MkPin(self, 'B', 2, Box(-0.94-le/2, (-0.81-we/2-leoffset-bipwinyoffset-empolyyoffset), (stretchX+0.94+le/2), (-0.57-we/2-leoffset-bipwinyoffset-empolyyoffset)), Layer('Metal1', 'pin'))
         MkPin(self, 'E', 3, Box(-0.71-le/2, (0.32+we/2+leoffset+bipwinyoffset+empolyyoffset), stretchX+0.71+le/2, (-0.335-we/2-leoffset-bipwinyoffset-empolyyoffset)), Layer('Metal2', 'pin'))
-        print("metal1pin2",Box(-0.94-le/2, (-0.81-we/2-leoffset-bipwinyoffset-empolyyoffset), (stretchX+0.94+le/2), (-0.57-we/2-leoffset-bipwinyoffset-empolyyoffset)))
-        print("metal2pin2",Box(-0.71-le/2, (0.32+we/2+leoffset+bipwinyoffset+empolyyoffset), stretchX+0.71+le/2, (-0.335-we/2-leoffset-bipwinyoffset-empolyyoffset)))
-        
+  
         pcLayer = 'TEXT'
         pcLabelText = 'Ae={Ae}um2'.format(Ae=Nx*Ny*le*we)
         pcLabelHeight = 0.35
