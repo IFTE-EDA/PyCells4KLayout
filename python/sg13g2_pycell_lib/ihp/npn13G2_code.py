@@ -113,8 +113,6 @@ class npn13G2(DloGen):
             leoffset = 0
             
         name = self.masterLib + '/' + self.masterCell +'/' + self.masterView
-        
-        print("DLo exists", Dlo.exists(name))
         if Dlo.exists(name) :
             pcMaster = Instance(name)  
              
@@ -131,7 +129,6 @@ class npn13G2(DloGen):
          
         pcLayer = 'TRANS'
         pcPurpose = 'drawing'
-        print("AFTER INSTANCE LAYERTECH",Layer.tech.stream_layers(), Layer.tech.stream_layers()["Activ"])
         dbCreatePolygon(self, Layer(pcLayer, pcPurpose), PointList([Point(stretchX+2.45, (2.43 + we/2 + leoffset + bipwinyoffset + empolyyoffset)), 
                                                                     Point(-2.45, (2.43 + we/2 + leoffset + bipwinyoffset + empolyyoffset)), 
                                                                     Point(-2.45, (-1.98 - we/2 - leoffset - bipwinyoffset - empolyyoffset)), 
@@ -160,10 +157,8 @@ class npn13G2(DloGen):
                                                                     Point(stretchX+3.15+ActivShift, (-2.68 - we/2 - leoffset - bipwinyoffset - empolyyoffset-ActivShift))]))
         if Nx >  1 :
             MkPin(self, 'C', 1, Box(-0.89-le/2, (0.57+we/2-leoffset-bipwinyoffset-empolyyoffset), (stretchX+0.89+le/2), (1.01+we/2-leoffset-bipwinyoffset-empolyyoffset)), Layer('Metal1', 'pin'))
-            print("nx metal1pin", Nx,Box(-0.89-le/2, (0.57+we/2-leoffset-bipwinyoffset-empolyyoffset), (stretchX+0.89+le/2), (1.01+we/2-leoffset-bipwinyoffset-empolyyoffset)))
         else :
             MkPin(self, 'C', 1, Box(-0.89-le/2, (0.56+we/2+leoffset+bipwinyoffset+empolyyoffset), (stretchX+0.89+le/2), (0.8+we/2+leoffset+bipwinyoffset+empolyyoffset)), Layer('Metal1', 'pin'))
-            print("nxsss metal1pin",Nx,Box(-0.89-le/2, (0.56+we/2+leoffset+bipwinyoffset+empolyyoffset), (stretchX+0.89+le/2), (0.8+we/2+leoffset+bipwinyoffset+empolyyoffset)))
             
         MkPin(self, 'B', 2, Box(-0.94-le/2, (-0.81-we/2-leoffset-bipwinyoffset-empolyyoffset), (stretchX+0.94+le/2), (-0.57-we/2-leoffset-bipwinyoffset-empolyyoffset)), Layer('Metal1', 'pin'))
         MkPin(self, 'E', 3, Box(-0.71-le/2, (0.32+we/2+leoffset+bipwinyoffset+empolyyoffset), stretchX+0.71+le/2, (-0.335-we/2-leoffset-bipwinyoffset-empolyyoffset)), Layer('Metal2', 'pin'))
