@@ -324,7 +324,6 @@ class rsil(DloGen):
         resistance = CbResCalc('R', 0, l*1e-6, w*1e-6, b, ps*1e-6, Cell)
         labeltext = '{0} r={1:.3f}'.format(Cell, resistance)
         labelpos = Point(w/2, l/2)
-        print(f"w={w}, l={l}, text='{labeltext}'")
 
         # label scaling. Should always fit into bBox of device
         labelheight = 0.1    # use 1.0 to avoid later multiplication
