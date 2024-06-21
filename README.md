@@ -38,7 +38,7 @@ This document provides an overview of the classes and methods that have been add
 32. **Tech**: 1 method addded (the remaining methods are from IHP OpenPDK)
 
 ### 
-Based on the code provided by IHP OpenPDK, the following classes have been modified to include additional functionalities:
+Based on the code provided by IHP OpenPDK, several classes have been modified to include additional functionalities. The following is a short list of classes and files adopted from the IHP OpenPDK.
 1. PyCellWrapper class: Modified the `__call__` method and `coerce_parameters` method, modified the `PyCellContext` class，and adapted some methods and descriptors from the KLayout main source.
 2. All PyCells and technology files(.lyp and .lyt files) are provided by IHP OpenPDK, the module sg13g2_pycell_lib is from IHP OpenPDK.
 3. using a KLayout macro file to automatically register the PyCellLib library; the PyCellLib class is from IHP OpenPDK.
