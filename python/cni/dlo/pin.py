@@ -78,9 +78,3 @@ class Pin:
                 #raise ValueError("Shape is already associated with another pin.")
             Pin.shapeMapPin[shape] = self
             self.shapes.append(shape)
-
-    def destory(self):
-        if self.name in Pin._pinsName:
-            del Pin._pinsName[self.name]   
-        if self.term and self in self.term.pins:
-            self.term.pins.remove(self)
